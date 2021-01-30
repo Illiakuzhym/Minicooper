@@ -1,0 +1,526 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mini-icon.png" type="image/x-icon">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .logomini{
+            margin-top:-70px;
+        }
+
+        .zayava {
+            font-size: 40px;
+            margin-top: -50px;
+            letter-spacing: 15px;
+            font-family: Gill Sans Extrabold, sans-serif;
+            text-align:center;
+        }
+
+        .row {
+            align-content:center;
+        }
+
+
+        .col-md-12{
+           padding-left:10%;
+           padding-right:10%;
+        }
+
+
+        .bg-light {
+            background-color: #f8f9fa !important;        
+        }
+
+        .btn-block{
+            
+            margin-left:400px;
+        }
+
+        .zayavabutton{
+            width:30%;
+            height:49px;
+            border-radius:90px;
+            background-color:#fff;
+            border:2px solid black;
+            margin:10px 35%;
+            font-size:100%;
+            margin-bottom:10%;
+        }
+
+        .zayavabutton:hover{
+            background-color:black;
+            color:white;
+        }
+
+        .koment123 {
+            width:207%;
+        }
+
+        @media (max-width:768px){
+            .koment123{
+                width:103%;
+            }
+
+            .zayavabutton{
+                font-size:60%;
+                width: 80%;
+                margin-left:10%;
+                margin-right:10%;
+
+            }
+        }
+
+
+
+        /*burger*/
+        .burger-menu_button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 30;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+            .burger-menu_button:hover .burger-menu_lines {
+                color: orange;
+            }
+
+        .burger-menu_lines,
+        .burger-menu_lines::after,
+        .burger-menu_lines::before {
+            position: absolute;
+            width: 40px;
+            height: 6px;
+            background-color: black;
+            box-shadow: -30px 0 10px -6px black inset;
+        }
+
+        .burger-menu_lines {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+            .burger-menu_lines::before {
+                content: '';
+                top: -12px;
+            }
+
+            .burger-menu_lines::after {
+                content: '';
+                top: 12px;
+            }
+
+
+        .burger-menu_active .burger-menu_button,
+        .burger-menu_active .burger-menu_lines {
+            background-color: transparent;
+            box-shadow: -30px 0 10px -6px transparent inset;
+        }
+
+            .burger-menu_active .burger-menu_lines::before {
+                top: 0;
+                transform: rotate(45deg);
+                background-color: black;
+                transition: 0.3s;
+            }
+
+            .burger-menu_active .burger-menu_lines::after {
+                top: 0;
+                transform: rotate(-45deg);
+                background-color: black;
+                transition: 0.3s;
+            }
+
+        .burger-menu_nav {
+            padding-top: 80px;
+            position: fixed;
+            z-index: 20;
+            display: flex;
+            flex-flow: column;
+            height: 100%;
+            background-color: #fff;
+            border-right: 2px solid black;
+            overflow-y: auto;
+            left: -100%;
+            visibility: visible;
+            transition: 0.5s;
+        }
+
+        .burger-menu_active .burger-menu_nav {
+            left: 0;
+        }
+
+        .burger-menu_link {
+            padding: 30px;
+            padding-bottom: 5px;
+            padding-top: 10px;
+            font-family: sans-serif;
+            font-size: 22px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+            color: black;
+        }
+
+            .burger-menu_link:hover {
+                color: gray;
+            }
+
+        .burger-menu_overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+
+        .burger-menu_active .burger-menu_overlay {
+            display: block;
+        }
+
+        .sect section {
+            font-size: 100px;
+            padding-left: 40%;
+            padding-top: 20%;
+            margin-bottom: 40px;
+        }
+
+        .media {
+            display: inline-block;
+            padding-left: 20px;
+        }
+
+            .media a {
+                list-style: none;
+                margin: 10px 25px;
+                font-size: 40px;
+                float: left;
+                color: black;
+            }
+
+                .media a:hover {
+                    color:gray ;
+                }
+
+        /*end burger*/
+
+        #krest{
+            color:black;
+        }
+        
+    </style>
+    <!-- Custom styles for this template -->
+    
+    <body class="bg-light">
+
+        <div class="burger-menu">
+            <a href="#" class="burger-menu_button">
+                <span class="burger-menu_lines"></span>
+            </a>
+            <nav class="burger-menu_nav">
+                <a href="#sec1" class="burger-menu_link">Модели</a>
+                <a href="#sec2" class="burger-menu_link">Предложения</a>
+                <a href="#sec3" class="burger-menu_link">Владельцам</a>
+                <a href="#sec4" class="burger-menu_link">Аксуссуары</a>
+                <a href="#sec5" class="burger-menu_link">Мир MINI</a>
+                <nav class="media">
+                    <a href="#" class="fab fa-facebook"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                </nav>
+            </nav>
+            <div class="burger-menu_overlay">
+
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="py-5 text-center">
+                <img class="d-block mx-auto mb-4 logomini" src="img/mini_lp.svg" alt="" width="200" height="200">
+                <h2 class="zayava">ЗАЯВКА НА TEST-DRIVE<a href="..\index.html" id="krest"><i class="fas fa-times" style="margin-left:8%;margin-right:-10%;"></i></a></h2>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12 order-md-1">
+                    <form  action="mail.php" method="POST">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName">Имя:*</label>
+                                <input type="text" class="form-control" id="firstName" name="user_name" value="" required>
+                                <div class="invalid-feedback">
+                                    Valid  name is required.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="phoneNumber">Телефон:*</label>
+                                <input type="number" class="form-control" id="phoneNumber" name="user_phone" value="" required>
+                                <div class="invalid-feedback">
+                                    Valid phone number is required.
+                                </div>
+                            </div>
+                          </div>  
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="adress">Адрес:*</label>
+                                <input type="text" class="form-control" id="Adress" placeholder="" value="" name="user_address" required>
+                                <div class="invalid-feedback">
+                                    Valid first name is required.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email">Email:*</label>
+                                <input type="email" class="form-control" id="Email" placeholder="you@example.com" name="user_email" value="" required>
+                                <div class="invalid-feedback">
+                                    Valid email is required.
+                                </div>
+                            </div>
+                        </div>
+                        
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="location">Место проведения test-drive:*</label>
+                            <select class="custom-select d-block w-100" id="location" name="user_location" required>
+                                <option value="">Choose...</option>
+                                <option>United States</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Valid location is required.
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="date">Дата проведения test-drive:*</label>
+                            <input class="form-control" id="country" type="date" name="user_time" placeholder="Your date">
+                            <div class="invalid-feedback">
+                                Valid data is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="car">Автомобиль на  test-drive:*</label>
+                            <select class="custom-select d-block w-100" id="country" name="user_auto" required>
+                                <option value="">Choose...</option>
+                                <option>United States</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Valid car is required.
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="datebuy">Как скоро вы планируете купить автомобиль:</label>
+                            <select class="custom-select d-block w-100" id="country" name="user_buy" required>
+                                <option value="">Choose...</option>
+                                <option>United States</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Valid date is required.
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <p>
+                                Комментарий<Br>
+                                <textarea class="koment123" name="user_comment"></textarea>
+                            </p>
+                        </div>
+                    </div>
+                    
+                        <!-- NOOOOO
+                        <div class="mb-3">
+                            <label for="username">Username</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">@</span>
+                                </div>
+                                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                                <div class="invalid-feedback" style="width: 100%;">
+                                    Your username is required.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                            <div class="invalid-feedback">
+                                Please enter a valid email address for shipping updates.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                            <div class="invalid-feedback">
+                                Please enter your shipping address.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+                            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-5 mb-3">
+                                <label for="country">Country</label>
+                                <select class="custom-select d-block w-100" id="country" required>
+                                    <option value="">Choose...</option>
+                                    <option>United States</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a valid country.
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="state">State</label>
+                                <select class="custom-select d-block w-100" id="state" required>
+                                    <option value="">Choose...</option>
+                                    <option>California</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please provide a valid state.
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="zip">Zip</label>
+                                <input type="text" class="form-control" id="zip" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Zip code required.
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="same-address">
+                            <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="save-info">
+                            <label class="custom-control-label" for="save-info">Save this information for next time</label>
+                        </div>
+                        <hr class="mb-4">
+
+                        <h4 class="mb-3">Payment</h4>
+
+                    <div class="d-block my-3">
+                        <div class="custom-control custom-radio">
+                            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                            <label class="custom-control-label" for="credit">Credit card</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="debit">Debit card</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="paypal">PayPal</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="cc-name">Name on card</label>
+                            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                            <small class="text-muted">Full name as displayed on card</small>
+                            <div class="invalid-feedback">
+                                Name on card is required
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="cc-number">Credit card number</label>
+                            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Credit card number is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label for="cc-expiration">Expiration</label>
+                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Expiration date required
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="cc-cvv">CVV</label>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Security code required
+                            </div>
+                        </div>
+                    </div>-->
+                        
+                            <hr class="mb-4">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="same-address">
+                                <label class="custom-control-label" for="same-address">
+                                    Я предоставляю АВТ Бавария Украина разрешение на обработку моих персональных данных
+                                    с целью осуществления рекламной деятельности АВТ Бавария Украина, а также даю согласие
+                                    на передачу персональных данных третьим лицам, в том числе на трансграничную передачу
+                                    персональных данных, если это будет необходимо с вышеуказанной целью.
+                                </label>
+                                <p style="margin-top:10px;">*обязательное после для заполнения</p>
+                            </div>
+                        <button type="submit" class="zayavabutton" onclick="Otpr();" >ОТПРАВИТЬ ЗАЯВКУ</button>
+                        <script type="text/javascript">
+                            
+
+                        </script>
+                    </form>
+                    
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- hueta-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+             <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <script src="form-validation.js"></script>
+    <script type="text/javascript"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>

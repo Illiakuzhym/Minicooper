@@ -1,0 +1,531 @@
+/*
+html, body {
+    overflow-y:hidden;
+}*/
+
+@font-face {
+    font-family: "MINI Sans Serif-Regular"; 
+    src: url("fonts/MINI Sans Serif-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+
+@font-face {
+    font-family: "MINI Sans Black-Regular"; 
+    src: url("fonts/MINI Serif Black Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+
+@font-face {
+    font-family: "MINI Sans Regular"; 
+    src: url("fonts/MINI Serif Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+        
+
+/*Navbar menu*/
+
+.burger-menu_button{
+    position:fixed;
+    top:10px;
+    left:10px;
+    z-index:30;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    transition:0.4s;
+}
+
+.burger-menu_button:hover .burger-menu_lines{
+    color:rgb(0, 0, 0);
+}
+
+.burger-menu_lines,
+.burger-menu_lines::after,
+.burger-menu_lines::before {
+    position: absolute;
+    width: 40px;
+    height: 6px;
+    background-color: rgb(0, 0, 0);
+    box-shadow: -30px 0 10px -6px rgb(0, 0, 0) inset;
+}
+
+.burger-menu_lines{
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.burger-menu_lines::before{
+    content:'';
+    top:-12px;
+}
+
+.burger-menu_lines::after{
+    content:'';
+    top:12px;
+}
+
+
+.burger-menu_active .burger-menu_button,
+.burger-menu_active .burger-menu_lines {
+    background-color: transparent;
+    box-shadow: -30px 0 10px -6px transparent inset;
+}
+
+    .burger-menu_active .burger-menu_lines::before {
+        top: 0;
+        transform: rotate(45deg);
+        background-color: rgb(0, 0, 0);
+        transition: 0.3s;
+    }
+
+    .burger-menu_active .burger-menu_lines::after {
+        top: 0;
+        transform: rotate(-45deg);
+        background-color: rgb(0, 0, 0);
+        transition: 0.3s;
+    }
+
+.burger-menu_nav{
+    padding-top:80px;
+    position:fixed;
+    z-index:25;
+    display:flex;
+    flex-flow:column;
+    height:100%;
+    background-color:#fff;
+    border-right: 2px solid black;
+    overflow-y:auto;
+    left:-100%;
+    visibility:visible;
+    transition:0.5s;
+}
+
+.burger-menu_active .burger-menu_nav{
+    left:0;
+
+}
+
+.burger-menu_link{
+    padding:30px;
+    padding-bottom:5px;
+    padding-top:10px;
+    font-family:sans-serif;
+    font-size:22px;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-weight:bold;
+    color:black;
+}
+
+    .burger-menu_link:hover {
+        color: #FDEF64;
+    }
+
+.burger-menu_overlay{
+     display:none;
+     position:fixed;
+     top:0;
+     left:0;
+     width:100%;
+     height:100%;
+     z-index:20;
+}
+
+.burger-menu_active .burger-menu_overlay{
+    display:block;
+}
+
+.sect section{
+    font-size:100px;
+    padding-left:40%;
+    padding-top:20%;
+    margin-bottom:40px;
+}
+
+.media{
+    display:inline-block;
+    padding-left:20px;
+}
+
+.media a{
+    list-style:none;
+    margin:10px 25px;    
+    font-size:40px;
+    float:left;
+    color:black;
+}
+
+    .media a:hover {
+        color: #FDEF64;
+    }
+
+
+
+
+
+#minikop {
+    color:black;
+    white-space: nowrap;
+    font-family: MINI Serif;
+    font-style: normal;
+    font-size:300%;
+    margin-top:-4%;
+    
+}
+
+#miniele {
+    color: black;
+    white-space: nowrap;
+    font-family: MINI Serif;
+    font-style: normal;
+    font-size: 250%;
+    margin-top: -1%;
+}
+
+#minihr{
+    height:4px;
+    margin-top:-1%;
+}
+
+.logomini {
+    width:10%;
+    height:10%;
+      
+}
+
+@media (min-width:900){
+    .logomini{
+        width:50%;
+        height:50%;
+    }
+}
+@media (max-width:800px){
+    .logomini{
+        width:30%;
+        height:30%;
+    }
+
+    #minikop{
+        font-size:230%;
+    }
+
+    #miniele{
+        font-size:180%;
+    }
+
+
+}
+
+@media (max-width:400px) {
+    .logomini {
+        width: 25%;
+        height: 25%;
+    }
+
+}
+
+.bigmini {
+    margin-top:-50px;
+    width:60%;
+    height:60%;
+
+}
+
+.contactbutton {
+   
+    width: 25%;
+    height: 49px;
+    border-radius: 90px;
+    background-color: #fff;
+    border: 2px solid #FDEF64;
+    margin: 10px 35%;
+    font-size: 100%;
+    margin-bottom:-20px;
+    margin-top:-50px;
+}
+
+    .contactbutton:hover {
+        background-color: #FDEF64;
+        color: white;
+        transition:0.3s;
+    }
+
+@media (max-width:768px){
+    .contactbutton {
+        font-size: 70%;
+        width: 60%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+
+.videoblock {
+    position:fixed;
+    top:0;
+    z-index: 9;
+    height: 100%;
+    width: 28.5%;
+    background: #FDEF64;
+    margin-left: 71.5%;
+    transition:1s;
+}
+
+.sered{
+    position:relative;
+    z-index:10;
+}
+
+
+.title {
+    /* ОТКРОЙ ГОРОД ПОД ДРУГИМ УГЛОМ. */
+    
+    font-family: "MINI Sans Regular";
+    font-size: 40px;
+    
+    color: #000000;
+    
+        }
+    h2 {
+/* ОТКРОЙ ГОРОД ПОД ДРУГИМ УГЛОМ. */
+
+font-family: "MINI Sans Regular";
+font-size: 40px;
+
+color: #000000;
+
+    }
+    .abzac {
+        /* ТРЕХДВЕРНЫЙ ХЭТЧБЭК MINI. */
+        position: absolute;
+        
+        font-family: "MINI Sans Regular";
+        font-size: 20px;
+        line-height: 28px;
+        /* identical to box height */
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.02em;
+        
+        color: #000000;
+        
+            }
+    p{
+/* ТРЕХДВЕРНЫЙ ХЭТЧБЭК MINI. */
+position: absolute;
+
+font-family: "MINI Sans Regular";
+font-size: 20px;
+line-height: 28px;
+/* identical to box height */
+display: flex;
+align-items: center;
+letter-spacing: 0.02em;
+
+color: #000000;
+
+    }
+
+#zarhr {
+    height: 2px;
+    transition: 1s;
+}
+
+.zarblock p {
+    margin-top: -10px;
+    font-size: 13px;
+    transition: 1s;
+}
+
+#playComp {
+    position: fixed;
+    top: 0;
+    margin-left: 85%;
+    margin-top: 25%;
+    z-index: 12;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+
+#playComp:hover {
+    background:white;
+    transition:0.5s;
+}
+
+
+
+.changecolor {
+    position: fixed;
+    top: 0;
+    margin-top: 43%;
+    margin-left: 88%;
+    z-index: 12;
+    display: inline-block;
+    transition: 1s;
+}
+
+.changecolor a{
+    color:gray;
+    float:left;
+    list-style: none;
+    font-size: 35px;
+    margin: 10px 25px;
+    
+}
+
+.changecolor a:hover{
+    color:white;
+    transition:0.3s;
+}
+
+
+.active_videoblock {
+    transition: all 1s ease-out;
+}
+
+    .active_videoblock .videoblock {
+        position: fixed;
+        top: 0;
+        margin-left: 48%;
+        transition: 1s;
+    }
+
+.active_videoblock .dealersbut,
+.active_videoblock .zarblock,
+.active_videoblock .changecolor,
+.active_videoblock #playComp {
+    
+    transition:1s;
+    display: none;
+}
+
+.block_pod{
+    position:fixed;
+    z-index:15;
+    display:none;
+    transition:1s;
+    
+}
+
+#krest_outline{
+    position:fixed;
+    top:0;
+    margin-top:5%;
+    margin-left:95%;
+    z-index:15;
+    transition:1s;
+}
+
+.active_videoblock .block_pod {
+    display: block !important;
+}
+
+#slider{
+    position:absolute
+}
+
+.cover-container {
+    height: 400px;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.cover-item {
+    position: relative;
+    display: inline-block;
+    margin: 40px 8px;
+    border-top-right-radius: 4px;
+    vertical-align: bottom;
+}
+
+@media (max-width:400px){
+    .title{
+    font-size: 20px ;
+    }
+    .abzac{
+        font-size: 10px;
+    }
+    .cover-item {
+        margin: 65px 8px;
+
+    }
+
+
+}
+@media (min-width: 401px){
+.abzac{
+    font-size: 12px;
+}
+}
+@media (max-width:800px) {
+    .cover-item {
+        margin: 80px 8px;
+    }
+}
+
+@media (min-width:900px) {
+    .cover-item {
+        margin: 60px 8px;
+    }
+    .cover-container {
+        height: 600px;
+        width: 100%;
+    }
+}
+@media (min-width:1900px){
+    .abzac {
+        font-size: 100px;
+    }
+    .cover-item {
+    margin: 120px 8px;
+    } 
+}
+@media (min-width:1300px) {
+    .cover-item {
+        margin: 40px 8px;
+    }
+    .abzac {
+        font-size: 20px;
+    }
+    .cover-container {
+        height: 600px;
+        width: 100%;
+    }
+}
+
+@media (min-height:1300px) {
+    .title{
+        font-size: 30px;
+    }
+    .abzac{
+        font-size: 20px;
+    }
+    .cover-item {
+        margin: 70px 8px;
+
+    }
+    .cover-container {
+        height: 500px;
+        width: 100%;
+    }
+}
+
+@media (max-height: 801px) {
+    .cover-item {
+        margin: 70px 8px;
+
+    }
+    .cover-container {
+        height: 500px;
+        width: 100%;
+    }
+}
+
+
